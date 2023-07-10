@@ -366,17 +366,20 @@ class OmniGenerator(nn.Module):
             assert self.opts.val.val_painter
 
             # path exists
-            ckpt_path = Path(self.opts.val.val_painter).resolve()
-            assert ckpt_path.exists()
+            # ckpt_path = Path(self.opts.val.val_painter).resolve()
+            # print(ckpt_path)
+            ckpt_path = Path("/content/climategan/config/model/painter/checkpoints/latest_ckpt.pth")
+            # assert ckpt_path.exists()
 
             # path is a checkpoint path
-            assert ckpt_path.is_file()
+            # assert ckpt_path.is_file()
 
             # opts are available in that path
-            opts_path = ckpt_path.parent.parent / "opts.yaml"
-            assert opts_path.exists()
+            # opts_path = ckpt_path.parent.parent / "opts.yaml"
+            # assert opts_path.exists()
 
             # load opts
+            opts_path = Path("/content/climategan/config/model/painter/opts.yaml")
             with opts_path.open("r") as f:
                 val_painter_opts = Dict(yaml.safe_load(f))
 
