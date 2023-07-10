@@ -500,6 +500,8 @@ class Trainer:
 
             # specified m
             elif str(m_path) != "none":
+                print(m_path)
+                m_path = Path("/content/climategan/config/model/masker/checkpoints/latest_ckpt.pth")
                 assert m_path.exists()
                 assert "m" in self.opts.tasks
                 model = "M"
@@ -732,6 +734,7 @@ class Trainer:
         if inference:  # Inference mode: no more than a Generator needed
             print("Inference mode: no Discriminator, no optimizers")
             print_num_parameters(self)
+            print("Yeh step bhi ho gaya")
             self.switch_data(to="base")
             if self.opts.train.resume:
                 self.resume(True)
